@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MobileLabOneButtonKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vmb-MB-yh3">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFv-y2-6XO">
+                                <rect key="frame" x="0.0" y="55" width="375" height="30.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The bittersweet of a father " textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nU3-iq-zcW">
+                                <rect key="frame" x="16" y="327" width="343" height="33"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="nU3-iq-zcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-359" id="BKs-wY-Srp"/>
+                            <constraint firstItem="HFv-y2-6XO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="CMR-4O-aUz"/>
+                            <constraint firstItem="HFv-y2-6XO" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Edg-fJ-pJu"/>
+                            <constraint firstItem="Vmb-MB-yh3" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="GYN-Xs-YIr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nU3-iq-zcW" secondAttribute="trailing" id="KGY-1q-qKm"/>
+                            <constraint firstItem="nU3-iq-zcW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-340" id="MXB-H8-toe"/>
+                            <constraint firstItem="Vmb-MB-yh3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Uv1-lZ-5L3"/>
+                            <constraint firstItem="Vmb-MB-yh3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YFm-zT-Tti"/>
+                            <constraint firstItem="Vmb-MB-yh3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="hY8-db-ZeD"/>
+                            <constraint firstItem="HFv-y2-6XO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iJP-Jt-Zfq"/>
+                            <constraint firstItem="HFv-y2-6XO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jSJ-Or-Ceh"/>
+                            <constraint firstItem="nU3-iq-zcW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uxq-6m-ml6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rXP-vS-EEI" appends="YES" id="S7r-ny-8Rn"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Vmb-MB-yh3" id="oNY-3R-zZY"/>
+                        <outlet property="initLabel" destination="nU3-iq-zcW" id="n6X-2h-xNw"/>
+                        <outlet property="label" destination="HFv-y2-6XO" id="vtN-2O-zse"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rXP-vS-EEI">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="daC-9x-1LJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="36" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+</document>
