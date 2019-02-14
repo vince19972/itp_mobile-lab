@@ -152,6 +152,10 @@ class ViewController: UIViewController {
         btn_3_1.backgroundColor = UIColor.blue
         btn_4_2.backgroundColor = UIColor.blue
         btn_5.backgroundColor = UIColor.blue
+        row_2.isHidden = true
+        row_3.isHidden = true
+        row_4.isHidden = true
+        btn_5.isHidden = true
     }
 
 }
