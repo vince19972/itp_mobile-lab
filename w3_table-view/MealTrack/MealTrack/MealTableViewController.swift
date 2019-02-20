@@ -14,7 +14,7 @@ struct Meal: Codable {
     var mealName: String
     var mealType: String
     var date: String
-    var iconLabel: String
+    var imagePath: String
 }
 
 class MealTableViewController: UITableViewController {
@@ -62,24 +62,41 @@ class MealTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // get cell data
         let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealTableViewCell
-        
         let mealElement = mealArray[indexPath.row]
         
+        // get image data of meal element
+        let mealImage = getImage(imageName: mealElement.imagePath)
+        
+        // set cell
         cell.nameLabel.text = mealElement.mealName
         cell.typeLabel.text = mealElement.mealType
         cell.timeLabel.text = mealElement.date
-        cell.iconLabel.text = mealElement.iconLabel
+        cell.mealImage.image = UIImage(contentsOfFile: mealImage)
         
+        // styling
         if (indexPath.row % 2) == 0 {
-            cell.iconLabel.backgroundColor = UIColor.yellow
             cell.backgroundColor = UIColor(red:0.97, green:0.97, blue:0.97, alpha:1.0)
         } else {
-            cell.iconLabel.backgroundColor = UIColor.blue
             cell.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
         }
         
         return cell
+    }
+    
+    func getImage(imageName: String) -> String {
+        // create instance of FileManager
+        let fileManager = FileManager.default
+        
+        // get the file system image path and return it
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        
+        if (fileManager.fileExists(atPath: imagePath)) {
+            return imagePath
+        } else {
+            return "default"
+        }
     }
     
     /*

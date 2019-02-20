@@ -20,6 +20,7 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     
     // global values
     var mealTypesData = [String]()
+    var selectedImagePath: String?
     
     // MARK: View cycles
     override func viewDidLoad() {
@@ -106,6 +107,7 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         
         // Only allow photos to be picked, not taken.
         imagePickerController.sourceType = .photoLibrary
+//        imagePickerController.sourceType = .camera
         
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self
@@ -123,11 +125,34 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // Set photoImageView to display the selected image
         mealImage.image = selectedImage
         
+        // save image to FileManager
+        // use hashValue of selectedImage as imageName
+        saveImage(imageName: String(selectedImage.hashValue))
+        
         // Dismiss the picker
         dismiss(animated: true, completion: nil)
     }
+    //-- image saving funciton
+    func saveImage(imageName: String) {
+        // create an instance of the FileManager
+        let fileManager = FileManager.default
+        
+        // get the file system image path
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+        
+        // get the image we just took/selected
+        let image = mealImage.image!
+        
+        // get the png data of this image
+        let data = image.pngData()
+        
+        // update global imageName for sending to Meal Struct
+        selectedImagePath = imageName
+        
+        // store the image in document directory
+        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
+    }
 
-    
     
     // main save and cancel button
     @IBAction func handleCancleButton(_ sender: Any) {
@@ -137,26 +162,9 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         // get input data
         let dateString = NSDate().description
         let inputName = mealNameText.text ?? "no value"
-        let inputType = mealTypeText.text ?? "no value"
+        let inputType = mealTypeText.text == "" ? "Just a meal" : mealTypeText.text!
         
-        var icon = ""
-
-        switch inputType {
-            case mealTypesData[0]:
-                icon = "🥞"
-            case mealTypesData[1]:
-                icon = "🌭"
-            case mealTypesData[2]:
-                icon = "🥗"
-            case mealTypesData[3]:
-                icon = "🍕"
-            case mealTypesData[4]:
-                icon = "🍦"
-            default:
-                icon = "🍕"
-        }
-        
-        let meal = Meal(mealName: inputName, mealType: inputType, date: dateString, iconLabel: icon)
+        let meal = Meal(mealName: inputName, mealType: inputType, date: dateString, imagePath: selectedImagePath ?? "default-image")
         didSaveElement?(meal)
         
         self.dismiss(animated: true, completion: nil)
