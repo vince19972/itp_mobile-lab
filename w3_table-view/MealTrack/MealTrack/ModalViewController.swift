@@ -26,6 +26,7 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // hide/disable elements
         createButton.isEnabled = false
         mealTypePicker.isHidden = true
@@ -96,7 +97,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         mealTypePicker.isHidden = false
     }
     
-    
     // image selection
     @IBAction func selectImageButton(_ sender: UIButton) {
         // hide the keyboard
@@ -107,7 +107,7 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         
         // Only allow photos to be picked, not taken.
         imagePickerController.sourceType = .photoLibrary
-//        imagePickerController.sourceType = .camera
+        //imagePickerController.sourceType = .camera
         
         // Make sure ViewController is notified when the user picks an image.
         imagePickerController.delegate = self

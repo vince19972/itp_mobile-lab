@@ -60,7 +60,6 @@ class MealTableViewController: UITableViewController {
         return mealArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // get cell data
         let cell = tableView.dequeueReusableCell(withIdentifier: "mealCell", for: indexPath) as! MealTableViewCell
@@ -83,6 +82,22 @@ class MealTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let closeAction = UIContextualAction(style: .normal, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            
+            // to delete row in data source
+            self.mealArray.remove(at: indexPath.row)
+            // to delete row in tableView
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            success(true)
+        })
+        
+        closeAction.backgroundColor = .red
+
+        return UISwipeActionsConfiguration(actions: [closeAction])
     }
     
     func getImage(imageName: String) -> String {

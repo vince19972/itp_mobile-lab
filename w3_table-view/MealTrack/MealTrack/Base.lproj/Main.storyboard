@@ -69,12 +69,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="Iun-7I-btY" firstAttribute="leading" secondItem="Mwm-WB-abO" secondAttribute="leading" id="0ZI-CV-0x4"/>
                                         <constraint firstItem="Iun-7I-btY" firstAttribute="top" secondItem="Mwm-WB-abO" secondAttribute="top" id="30F-mi-eNv"/>
                                         <constraint firstAttribute="bottom" secondItem="Iun-7I-btY" secondAttribute="bottom" id="GKn-if-q8P"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="cell" destination="Mwm-WB-abO" id="gfk-wv-cVO"/>
                                     <outlet property="mealImage" destination="Iun-7I-btY" id="76d-08-5sJ"/>
