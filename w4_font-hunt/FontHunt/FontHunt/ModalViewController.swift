@@ -100,10 +100,11 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             blue: 0.65,
             alpha: 1.0
         )
-//        imageView.addTarget(self, action: #selector(self.imageViewPressed(_:)), for: .touchUpInside)
+        imageView.addTarget(self, action: #selector(self.imageViewPressed(_:)), for: .touchUpInside)
+        imageView.isUserInteractionEnabled = true
         imageView.addSubview(imageViewBorder)
-        let imageTappedGesture = UITapGestureRecognizer(target: self, action: #selector(self.imageViewPressed(_:)))
-        imageView.addGestureRecognizer(imageTappedGesture)
+//        let imageTappedGesture = UITapGestureRecognizer(target: imageView, action: #selector(self.imageViewPressed(_:)))
+//        imageView.addGestureRecognizer(imageTappedGesture)
         
         
         // class choice
@@ -189,6 +190,7 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         self.view.addSubview(viewContainer)
         
         // constraints
+        // __ navBar
         navBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         navBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         navBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -199,42 +201,51 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         navBar_return.heightAnchor.constraint(equalToConstant: FOOTER_HEIGHT / 2).isActive = true
         navBar_return.widthAnchor.constraint(equalToConstant: FOOTER_HEIGHT / 2).isActive = true
         
+        // __ viewContainer
         viewContainer.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: FOOTER_HEIGHT).isActive = true
         viewContainer.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         viewContainer.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         viewContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        viewContainer.isUserInteractionEnabled = false
         
+        // __ mainContainer
         mainContainer.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
         mainContainer.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
         mainContainer.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor).isActive = true
         mainContainer.heightAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT).isActive = true
         mainContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         
+        // __ mainContainerBorder
         mainContainerBorder.bottomAnchor.constraint(equalTo: mainContainer.bottomAnchor, constant: -0.5).isActive = true
         mainContainerBorder.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         mainContainerBorder.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         mainContainerBorder.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         
+        // __ imageView
         imageView.topAnchor.constraint(equalTo: mainContainer.topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: mainContainer.leadingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT).isActive = true
         
+        // __ imageViewBorder
         imageViewBorder.topAnchor.constraint(equalTo: imageView.topAnchor).isActive = true
         imageViewBorder.rightAnchor.constraint(equalTo: imageView.rightAnchor).isActive = true
         imageViewBorder.heightAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT).isActive = true
         imageViewBorder.widthAnchor.constraint(equalToConstant: 0.5).isActive = true
         
+        // __ btn_selectClass
         btn_selectClass.topAnchor.constraint(equalTo: mainContainer.topAnchor).isActive = true
         btn_selectClass.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         btn_selectClass.heightAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT / 2).isActive = true
         btn_selectClass.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - THUMBNAIL_HEIGHT).isActive = true
         
+        // __ btn_selectClassBorder
         btn_selectClassBorder.bottomAnchor.constraint(equalTo: btn_selectClass.bottomAnchor, constant: 1).isActive = true
         btn_selectClassBorder.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         btn_selectClassBorder.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         btn_selectClassBorder.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - THUMBNAIL_HEIGHT).isActive = true
         
+        // __ btn_selectType
         btn_selectType.topAnchor.constraint(equalTo: btn_selectClassBorder.bottomAnchor).isActive = true
         btn_selectType.rightAnchor.constraint(equalTo: mainContainer.rightAnchor).isActive = true
         btn_selectType.heightAnchor.constraint(equalToConstant: THUMBNAIL_HEIGHT / 2).isActive = true
@@ -268,8 +279,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
     @objc func imageViewPressed(_ sender: UITapGestureRecognizer) {
         // hide the keyboard
 //        mealNameText.resignFirstResponder()
-        
-        print("🔥🔥🔥🔥🔥🔥")
         
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
