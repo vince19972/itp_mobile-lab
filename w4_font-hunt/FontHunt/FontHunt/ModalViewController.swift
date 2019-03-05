@@ -103,9 +103,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         imageView.addTarget(self, action: #selector(self.imageViewPressed(_:)), for: .touchUpInside)
         imageView.isUserInteractionEnabled = true
         imageView.addSubview(imageViewBorder)
-//        let imageTappedGesture = UITapGestureRecognizer(target: imageView, action: #selector(self.imageViewPressed(_:)))
-//        imageView.addGestureRecognizer(imageTappedGesture)
-        
         
         // class choice
         let btn_selectClass: UIButton = {
@@ -133,7 +130,6 @@ class ModalViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             alpha: 1.0
         )
         btn_selectClass.addSubview(btn_selectClassBorder)
-//        navBar_return.addTarget(self, action: #selector(self.dismissView(_:)), for: .touchUpInside)
         
         // type choice
         let btn_selectType: UIButton = {

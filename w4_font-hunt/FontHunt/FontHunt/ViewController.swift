@@ -27,6 +27,8 @@ MARK: global variables
 let FOOTER_HEIGHT: CGFloat = 48
 let FOOTER_ICON_SIZE: CGFloat = 20
 
+var fontStack = [Font]()
+
 struct Font: Codable {
     var date: String
     var location: String
@@ -44,12 +46,12 @@ MARK: view controller
  
 */
 
+
 class ViewController: UIViewController {
     
     /*
     MARK: child table
     */
-    var fontStack = [Font]()
     let childTableVC = MainTableViewController()        // create child VC
     
     
@@ -113,10 +115,10 @@ class ViewController: UIViewController {
         // Define a closure to be called in ActionViewController,
         // which will use the elementArray transported from this controller
         vc.didSaveElement = { [weak self] font in
-            self?.fontStack.append(font)
+            fontStack.append(font)
             
             // Resave element array into User defaults.
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(self?.fontStack), forKey: FontStackKey)
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(fontStack), forKey: FontStackKey)
             
             self?.childTableVC.tableView.reloadData()
         }

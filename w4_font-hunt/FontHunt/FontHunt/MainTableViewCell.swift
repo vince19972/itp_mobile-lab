@@ -29,7 +29,7 @@ class MainTableViewCell: UITableViewCell {
             let img = UIImageView(image: image)
             img.contentMode = .scaleAspectFill                      // image will never be strecthed vertially or horizontally
             img.translatesAutoresizingMaskIntoConstraints = false   // enable autolayout
-            img.clipsToBounds = true                                // make sure children do not go out of boundary
+            img.clipsToBounds = true
             
             return img
         }()

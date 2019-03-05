@@ -61,6 +61,9 @@ class MainTableViewController: UITableViewController {
         // cell styling
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
+        // data updating
+//        cell.imageView.image = UIImage(contentsOfFile: <#T##String#>)
+        
         return cell
     }
     
