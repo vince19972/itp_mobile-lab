@@ -15,6 +15,7 @@
 //
 // (3) Bezier stroke only: https://stackoverflow.com/questions/46721363/mask-uiview-with-uibezierpath-stroke-only
 //
+//
 /*-------------------------------------*/
 
 import Foundation
@@ -23,6 +24,7 @@ import UIKit
 class DrawArrow {
     
     var canvasView: UIView
+    var fourArrows: FourArrows?
     
     init(canvasView: UIView) {
         self.canvasView = canvasView
@@ -124,7 +126,9 @@ class DrawArrow {
         let downArrowLayer = createLayer(getCoordinations(.down))
         let leftArrowLayer = createLayer(getCoordinations(.left))
         
-        return FourArrows(up: upArrowLayer, right: rightArrowLayer, down: downArrowLayer, left: leftArrowLayer)
+        fourArrows = FourArrows(up: upArrowLayer, right: rightArrowLayer, down: downArrowLayer, left: leftArrowLayer)
+        
+        return fourArrows!
     }
     
 }
