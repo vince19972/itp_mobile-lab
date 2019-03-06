@@ -34,13 +34,14 @@ enum DirectionCode: String {
 /*
  MARK: view controller
 */
-class ViewController: UIViewController, WebSocketDelegate {
+class BoardViewController: UIViewController, WebSocketDelegate {
     
     /*
      MARK: class variables
     */
     var socket: WebSocket?
     var arrows: DrawArrow.FourArrows?
+    var defaultStore: UserDefaults?
     
     struct GyroValues {
         var x: Double
@@ -88,14 +89,18 @@ class ViewController: UIViewController, WebSocketDelegate {
         if isUp || isDown {
             if isUp {
                 updateStyle(arrows!.up)
+                sendDirectionMessage(.up)
             } else {
                 updateStyle(arrows!.down)
+                sendDirectionMessage(.down)
             }
         } else {
             if isLeft {
                 updateStyle(arrows!.left)
+                sendDirectionMessage(.left)
             } else {
                 updateStyle(arrows!.right)
+                sendDirectionMessage(.right)
             }
         }
     }
@@ -123,22 +128,31 @@ class ViewController: UIViewController, WebSocketDelegate {
     /*
      MARK: websockets functions
     */
-    func websocketDidConnect(socket: WebSocketClient) {
-        print("websocket connected")
+    func websocketDidConnect(socket: WebSocketClient) { print("✨✨✨ websocket connected ✨✨✨") }
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) { print("🛑 Disconnected:", error ?? "No message") }
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {}
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {}
+    
+    func sendDirectionMessage(_ code: DirectionCode) {
+        // Get the raw string value from the DirectionCode enum
+        // that we created at the top of this program.
+        sendMessage(code.rawValue)
     }
     
-    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+    func sendMessage(_ message: String) {
+        // Check if there is a valid player id set.
+        guard let playerId = defaultStore!.string(forKey: playerIdKey) else {
+            print("no id")
+            return
+        }
         
+        // Construct server message and write to socket
+        let message = "\(playerId), \(message)"
+        socket?.write(string: message) {
+            // This is a completion block.
+            // We can write custom code here that will run once the message is sent
+            print("⬆️ sent message to server: ", message)
+        }
     }
-    
-    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
-        
-    }
-    
-    func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
-        
-    }
-
-
 }
 

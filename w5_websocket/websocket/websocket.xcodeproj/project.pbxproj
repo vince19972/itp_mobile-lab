@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8AF2A43B222E0B15005A1B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2A43A222E0B15005A1B1D /* AppDelegate.swift */; };
-		8AF2A43D222E0B15005A1B1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2A43C222E0B15005A1B1D /* ViewController.swift */; };
+		8AF2A43D222E0B15005A1B1D /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2A43C222E0B15005A1B1D /* BoardViewController.swift */; };
 		8AF2A440222E0B15005A1B1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2A43E222E0B15005A1B1D /* Main.storyboard */; };
 		8AF2A442222E0B15005A1B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2A441222E0B15005A1B1D /* Assets.xcassets */; };
 		8AF2A445222E0B15005A1B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AF2A443222E0B15005A1B1D /* LaunchScreen.storyboard */; };
 		8AF2A44F222EB690005A1B1D /* drawArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2A44E222EB690005A1B1D /* drawArrow.swift */; };
+		8AF2A453222F7483005A1B1D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2A452222F7483005A1B1D /* EntryViewController.swift */; };
 		E8994B6FCC227923BFC37CE2 /* Pods_websocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EA23F42585076518074391 /* Pods_websocket.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,12 +21,13 @@
 		074A4A54770AE1E441067DC8 /* Pods-websocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-websocket.release.xcconfig"; path = "Target Support Files/Pods-websocket/Pods-websocket.release.xcconfig"; sourceTree = "<group>"; };
 		8AF2A437222E0B15005A1B1D /* websocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = websocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AF2A43A222E0B15005A1B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AF2A43C222E0B15005A1B1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8AF2A43C222E0B15005A1B1D /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		8AF2A43F222E0B15005A1B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AF2A441222E0B15005A1B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AF2A444222E0B15005A1B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AF2A446222E0B15005A1B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AF2A44E222EB690005A1B1D /* drawArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawArrow.swift; sourceTree = "<group>"; };
+		8AF2A452222F7483005A1B1D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		A93A191A2FCBAD8A520DD191 /* Pods-websocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-websocket.debug.xcconfig"; path = "Target Support Files/Pods-websocket/Pods-websocket.debug.xcconfig"; sourceTree = "<group>"; };
 		D4EA23F42585076518074391 /* Pods_websocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_websocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,8 +76,9 @@
 			children = (
 				8AF2A44E222EB690005A1B1D /* drawArrow.swift */,
 				8AF2A43A222E0B15005A1B1D /* AppDelegate.swift */,
-				8AF2A43C222E0B15005A1B1D /* ViewController.swift */,
+				8AF2A43C222E0B15005A1B1D /* BoardViewController.swift */,
 				8AF2A43E222E0B15005A1B1D /* Main.storyboard */,
+				8AF2A452222F7483005A1B1D /* EntryViewController.swift */,
 				8AF2A441222E0B15005A1B1D /* Assets.xcassets */,
 				8AF2A443222E0B15005A1B1D /* LaunchScreen.storyboard */,
 				8AF2A446222E0B15005A1B1D /* Info.plist */,
@@ -212,7 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF2A44F222EB690005A1B1D /* drawArrow.swift in Sources */,
-				8AF2A43D222E0B15005A1B1D /* ViewController.swift in Sources */,
+				8AF2A453222F7483005A1B1D /* EntryViewController.swift in Sources */,
+				8AF2A43D222E0B15005A1B1D /* BoardViewController.swift in Sources */,
 				8AF2A43B222E0B15005A1B1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
