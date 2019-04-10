@@ -1,0 +1,6 @@
+framework module Pods_paper_scissors_stone {
+  umbrella header "Pods-paper-scissors-stone-umbrella.h"
+
+  export *
+  module * { export * }
+}
