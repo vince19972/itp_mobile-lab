@@ -47,7 +47,7 @@ class ElementCreation {
         
         hand.numberOfLines = 1
         hand.adjustsFontSizeToFitWidth = true
-        hand.font = hand.font.withSize(parentContainer.frame.size.width / 2.5)
+        hand.font = hand.font.withSize(parentContainer.frame.size.width / 4)
         hand.textAlignment = .center
         hand.text = "✌️"
         
